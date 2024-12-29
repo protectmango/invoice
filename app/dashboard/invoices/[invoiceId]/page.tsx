@@ -27,5 +27,5 @@ export default async function editInvoiceRoute({
   const session = await requireUser();
   const data = await getData(invoiceId, session.user?.id as string);
 
-  return <EditInvoice data={data} />;
+  return <EditInvoice data={data!} />;
 }
