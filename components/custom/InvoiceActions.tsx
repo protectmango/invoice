@@ -54,7 +54,11 @@ export function InvoiceActions({ id, status }: iAppProps) {
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Link
-            href={`http://localhost:3000/api/invoice/${id}`}
+            href={
+              process.env.NODE_ENV !== "production"
+                ? `http://localhost:3000/api/invoice/${id}`
+                : `https://invoice-rana.vercel.app/api/invoice/${id}`
+            }
             target="_blank"
           >
             <DownloadCloudIcon className="size-4 mr-2" /> Download Invoice
